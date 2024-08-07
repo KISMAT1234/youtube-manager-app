@@ -1,8 +1,18 @@
-def list_all_video(videos):
-    pass
+import json
+def load_data():
+    try:
+        with open('youtube.txt','r') as file:
+            json.load(file)
+    except FileNotFoundError:
+        return []  
+    
+def save_data_helper(videos):
+    with open('youtube.txt','w') as file:
+        json.dump(videos, file)
 
-def add_video(videos):
-    pass
+def list_all_videos(videos):
+    for index, video in enumerate(videos, start=1):
+        print(f"{index}. ")
 
 def update_video(videos):
     pass
